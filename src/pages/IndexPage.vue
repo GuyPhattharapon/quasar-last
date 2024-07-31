@@ -8,6 +8,14 @@
     >
     <q-input
         filled
+        v-model="id"
+        label="Your ID *"
+        hint="IDcode"
+        lazy-rules
+        :rules="[ val => val && val.length > 0 || 'Please type your ID-code']"
+      />
+    <q-input
+        filled
         v-model="name"
         label="Your name *"
         hint="Name"
@@ -54,12 +62,14 @@ export default {
   setup () {
     const $q = useQuasar()
 
+    const id = ref("6604101***")
     const name = ref("ภัทรพล")
     const surname = ref("กิตอนันต์")
     const age = ref(null)
     const accept = ref(false)
 
     return {
+      id,
       name,
       surname,
       age,
